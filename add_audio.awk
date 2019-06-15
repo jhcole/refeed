@@ -14,6 +14,10 @@
 		obase = gensub(/(.*)\/.*mp3/, "\\1", 1, opath)
 		command = "mkdir -p " obase " && wget " audio_url " -q -O " opath
 		system(command)
-		print "<enclosure url=\"" opath "\" type=\"audio/mpeg\"/>"
+		command = "stat --printf=\"%s\" " opath
+		command | getline bytes
+		close(command)
+
+		print "<enclosure url=\"" opath "\" length=\"" bytes "\" type=\"audio/mpeg\"/>"
 	}
 }
