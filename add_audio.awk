@@ -18,6 +18,6 @@
 		command | getline bytes
 		close(command)
 
-		print "<enclosure url=\"" opath "\" length=\"" bytes "\" type=\"audio/mpeg\"/>"
+		print "<enclosure url=\"http://" opath "\" length=\"" bytes "\" type=\"audio/mpeg\"/>"
 	}
 }
